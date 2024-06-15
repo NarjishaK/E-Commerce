@@ -25,7 +25,7 @@ Before you begin, ensure you have the following software installed on your syste
 ### Clone the Repository
 Clone the repository to your local machine:
 ```bash
-git clone https://github.com/yourusername/E-Commerce.git
+git clone https://github.com/NarjishaK/E-Commerce
 cd E-Commerce
 ```
 
