@@ -5,6 +5,11 @@ This guide will help you set up and run the project locally. The project consist
 ## Overview
 This E-Commerce platform is designed to manage an online store efficiently. It consists of three main components: `admin`, `user`, and `server`. The platform leverages Node.js for its runtime environment and MongoDB for its database.
 
+- Admin: A Nest.js API running on port 3000.
+- user: A Nest.js API running on port 3000.
+- Server: An Express.js server running on port 8080.
+- Database: MongoDB running on its default port.
+
 ## Prerequisites
 Before you begin, ensure you have the following software installed on your system:
 - Node.js (v20.14.0) (tested thoroughly with this version)
