@@ -11,7 +11,7 @@ import { showRightSidebarAction, toggleLeftmenu } from "../../store/actions"
 import { Container } from "reactstrap"
 
 // Import menuDropdown
-import LanguageDropdown from "../CommonForBoth/TopbarDropdown/LanguageDropdown"
+// import LanguageDropdown from "../CommonForBoth/TopbarDropdown/LanguageDropdown"
 import NotificationDropdown from "../CommonForBoth/TopbarDropdown/NotificationDropdown"
 import ProfileMenu from "../CommonForBoth/TopbarDropdown/ProfileMenu"
 
@@ -101,7 +101,7 @@ const Header = props => {
                 <span className="fa fa-search"></span>
               </div>
             </form>
-            <LanguageDropdown />
+            {/* <LanguageDropdown /> */}
 
             <div className="dropdown d-none d-lg-inline-block">
               <button

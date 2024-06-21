@@ -15,7 +15,7 @@ const Navbar = props => {
   const [email, setemail] = useState(false)
   const [form, setform] = useState(false)
   const [table, settable] = useState(false)
-  const [chart, setchart] = useState(false)
+  // const [chart, setchart] = useState(false)
   const [icon, seticon] = useState(false)
   const [map, setmap] = useState(false)
   const [extra, setextra] = useState(false)
@@ -154,12 +154,6 @@ const Navbar = props => {
                           <Link to="/ui-alerts" className="dropdown-item">
                             {props.t("Alerts")}
                           </Link>
-                          <Link to="/ui-buttons" className="dropdown-item">
-                            {props.t("Buttons")}
-                          </Link>
-                          <Link to="/ui-badge" className="dropdown-item">
-                            {props.t("Badge")}
-                          </Link>
                           <Link to="/ui-cards" className="dropdown-item">
                             {props.t("Cards")}
                           </Link>
@@ -173,12 +167,6 @@ const Navbar = props => {
                       </Col>
                       <Col lg={4}>
                         <div>
-                          <Link to="/ui-grid" className="dropdown-item">
-                            {props.t("Grid")}
-                          </Link>
-                          <Link to="/ui-images" className="dropdown-item">
-                            {props.t("Images")}
-                          </Link>
                           <Link to="/ui-lightbox" className="dropdown-item">
                             {props.t("Lightbox")}
                           </Link>
@@ -204,17 +192,8 @@ const Navbar = props => {
                           >
                             {props.t("Tabs & Accordions")}
                           </Link>
-                          <Link to="/ui-typography" className="dropdown-item">
-                            {props.t("Typography")}
-                          </Link>
-                          <Link to="/ui-video" className="dropdown-item">
-                            {props.t("Video")}
-                          </Link>
                           <Link to="/ui-utilities" className="dropdown-item">
                             {props.t("Utilities")}
-                          </Link>
-                          <Link to="/ui-colors" className="dropdown-item">
-                            {props.t("Colors")}
                           </Link>
                           <Link to="/ui-offcanvas" className="dropdown-item">
                             {props.t("Offcanvas")}
@@ -275,6 +254,7 @@ const Navbar = props => {
                     <Link to="/calendar" className="dropdown-item">{props.t("Calendar")}</Link>
                     <Link to="/chat" className="dropdown-item">{props.t("Chat")}</Link>
                     <Link to="/kanbanboard" className="dropdown-item">{props.t("Kanban")}</Link>
+                    <Link to="/categories" className="dropdown-item">{props.t("Categories")}</Link>
                     <div className="dropdown">
                       <Link
                         to="/#"
@@ -345,59 +325,12 @@ const Navbar = props => {
                       >
                         {props.t("Maps")} <div className="arrow-down"></div>
                       </Link>
-                      <div
-                        className={classname("dropdown-menu", { show: map })}
-                      >
-                        <Link to="/maps-google" className="dropdown-item">
-                          {props.t("Google Maps")}{" "}
-                        </Link>
-                        <Link to="/maps-vector" className="dropdown-item">
-                          {props.t("Vector Maps")}{" "}
-                        </Link>
-                       
-                      </div>
                     </div>
                     <Link to="/ui-rangeslider" className="dropdown-item">{props.t("Range Slider")}</Link>
                     <Link to="/ui-session-timeout" className="dropdown-item">{props.t("Session Timeout")}</Link>
                   </div>
                 </li>
                 <li className="nav-item dropdown">
-                  <Link
-                    to="/#"
-                    className="nav-link dropdown-toggle arrow-none"
-                    onClick={e => {
-                      e.preventDefault()
-                      setchart(!chart)
-                    }}
-                  >
-                    <i className="ti-pie-chart"></i> {props.t("Charts")}
-                  </Link>
-                  <div
-                    className={classname("dropdown-menu", { show: chart })}
-                  >
-
-                    <Link to="/apex-charts" className="dropdown-item">
-                      {props.t("Apex charts")}
-                    </Link>
-
-                    
-                    <Link to="/charts-chartjs" className="dropdown-item">
-                      {props.t("Chartjs Chart")}
-                    </Link>
-
-                    <Link to="/sparkline-charts" className="dropdown-item">
-                      {props.t("Sparkline Chart")}
-                    </Link>
-
-                    <Link to="/charts-c3" className="dropdown-item">
-                      {props.t("C3 Chart")}
-                    </Link>
-
-                    <Link to="/charts-knob" className="dropdown-item">
-                      {props.t("Jquery Knob Chart")}
-                    </Link>
-
-                  </div>
                 </li>
 
                 <li className="nav-item dropdown">
@@ -413,20 +346,15 @@ const Navbar = props => {
                     <Row>
                       <Col lg={6}>
                         <div>
-                          <Link to="/pages-timeline" className="dropdown-item">Timeline</Link>
                           <Link to="/pages-invoice" className="dropdown-item">Invoice</Link>
                           <Link to="/pages-directory" className="dropdown-item">Directory</Link>
-                          <Link to="/pages-login" className="dropdown-item">Login</Link>
-                          <Link to="/pages-register" className="dropdown-item">Register</Link>
                         </div>
                       </Col>
                       <Col lg={6}>
                         <div>
                           <Link to="/page-recoverpw" className="dropdown-item">Recover Password</Link>
-                          <Link to="/auth-lock-screen" className="dropdown-item">Lock Screen</Link>
+                          <Link to="/auth-lock-screen/:id" className="dropdown-item">Lock Screen</Link>
                           <Link to="/pages-blank" className="dropdown-item">Blank Page</Link>
-                          <Link to="/pages-404" className="dropdown-item">Error 404</Link>
-                          <Link to="/pages-500" className="dropdown-item">Error 500</Link>
 
                         </div>
                       </Col>

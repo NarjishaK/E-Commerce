@@ -36,7 +36,7 @@ Before you begin, ensure you have the following software installed on your syste
     ```bash
     cd Admin
     npm install react-scripts@4.0.3 --legacy-peer-deps
-    npm install
+    npm start
     ```
 
 3. **Setup user**
@@ -46,7 +46,7 @@ Before you begin, ensure you have the following software installed on your syste
     ```bash
     cd ../user
     npm install --legacy-peer-deps
-    npm install
+    npm start
     ```
 
 4. **Setup Server (Express.js)**
@@ -56,6 +56,7 @@ Before you begin, ensure you have the following software installed on your syste
     ```bash
     cd ../server
     npm install
+    npm start
     ```
 
 5. **Start MongoDB**

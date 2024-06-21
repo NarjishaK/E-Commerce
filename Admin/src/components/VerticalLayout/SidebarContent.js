@@ -184,7 +184,18 @@ const SidebarContent = props => {
                 <span>Kanban Board</span>
               </Link>
             </li>
-
+            <li>
+                  <Link to="/categories" className=" waves-effect">
+                  <i className="mdi mdi-buffer"></i>
+                  <span>Categories</span>
+                  </Link>
+            </li>
+            <li>
+                  <Link to="/brands" className=" waves-effect">
+                  <i className="mdi mdi-buffer"></i>
+                  <span>Brand</span>
+                  </Link>
+            </li>
             <li className="menu-title">{props.t("Components")}</li>
             <li>
               <Link to="/#" className="has-arrow waves-effect">
@@ -196,37 +207,16 @@ const SidebarContent = props => {
                   <Link to="/ui-alerts">{props.t("Alerts")}</Link>
                 </li>
                 <li>
-                  <Link to="/ui-buttons">{props.t("Buttons")}</Link>
-                </li>
-                <li>
-                  <Link to="/ui-badge">{props.t("Badge")}</Link>
-                </li>
-                <li>
                   <Link to="/ui-cards">{props.t("Cards")}</Link>
                 </li>
                 <li>
                   <Link to="/ui-carousel">{props.t("Carousel")}</Link>
                 </li>
                 <li>
-                  <Link to="/ui-dropdowns">{props.t("Dropdowns")}</Link>
-                </li>
-                <li>
-                  <Link to="/ui-utilities">Utilities<span className="badge rounded-pill bg-success float-end">New</span></Link>
-                </li>
-                <li>
-                  <Link to="/ui-grid">{props.t("Grid")}</Link>
-                </li>
-                <li>
-                  <Link to="/ui-images">{props.t("Images")}</Link>
-                </li>
-                <li>
                   <Link to="/ui-lightbox">{props.t("Lightbox")}</Link>
                 </li>
                 <li>
                   <Link to="/ui-modals">{props.t("Modals")}</Link>
-                </li>
-                <li>
-                  <Link to="/ui-colors">Colors<span className="badge rounded-pill bg-warning float-end">New</span></Link>
                 </li>
                 <li>
                   <Link to="/ui-offcanvas">Offcanvas<span className="badge rounded-pill bg-warning float-end">New</span></Link>
@@ -248,12 +238,6 @@ const SidebarContent = props => {
                 </li>
                 <li>
                   <Link to="/ui-tabs-accordions">{props.t("Tabs & Accordions")}</Link>
-                </li>
-                <li>
-                  <Link to="/ui-typography">{props.t("Typography")}</Link>
-                </li>
-                <li>
-                  <Link to="/ui-video">{props.t("Video")}</Link>
                 </li>
               </ul>
             </li>
@@ -286,41 +270,6 @@ const SidebarContent = props => {
               </ul>
             </li>
 
-            <li>
-              <Link to="/#" className="has-arrow waves-effect">
-                <i className="mdi mdi-chart-line"></i>
-                <span>{props.t("Charts")}</span>
-              </Link>
-
-              <ul className="sub-menu">
-                <li>
-                  <Link to="/apex-charts">
-                    {props.t("Apex charts")}
-                  </Link>
-                </li>
-
-                <li>
-                  <Link to="/charts-chartjs" className="dropdown-item">
-                    {props.t("Chartjs Chart")}
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/sparkline-charts" className="dropdown-item">
-                    {props.t("Sparkline Chart")}
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/charts-c3" className="dropdown-item">
-                    {props.t("C3 Chart")}
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/charts-knob" className="dropdown-item">
-                    {props.t("Jquery Knob Chart")}
-                  </Link>
-                </li>
-              </ul>
-            </li>
 
             <li>
               <Link to="/#" className="has-arrow waves-effect">
@@ -384,19 +333,16 @@ const SidebarContent = props => {
                 <span>{props.t("Authentication")}</span>
               </Link>
               <ul className="sub-menu">
-                <li>
+                {/* <li>
                   <Link to="/pages-login">{props.t("Login")}</Link>
-                </li>
-                <li>
+                </li> */}
+                {/* <li>
                   <Link to="/pages-register">{props.t("Register")}</Link>
-                </li>
+                </li> */}
                 <li>
                   <Link to="/page-recoverpw">
                     {props.t("Recover Password")}
                   </Link>
-                </li>
-                <li>
-                  <Link to="/auth-lock-screen">{props.t("Lock Screen")}</Link>
                 </li>
               </ul>
             </li>
@@ -408,9 +354,6 @@ const SidebarContent = props => {
               </Link>
               <ul className="sub-menu">
                 <li>
-                  <Link to="/pages-timeline">{props.t("Timeline")}</Link>
-                </li>
-                <li>
                   <Link to="/pages-invoice">{props.t("Invoice")}</Link>
                 </li>
                 <li>
@@ -418,12 +361,6 @@ const SidebarContent = props => {
                 </li>
                 <li>
                   <Link to="/pages-blank">{props.t("Blank Page")}</Link>
-                </li>
-                <li>
-                  <Link to="/pages-404">{props.t("Error 404")}</Link>
-                </li>
-                <li>
-                  <Link to="/pages-500">{props.t("Error 500")}</Link>
                 </li>
               </ul>
             </li>
