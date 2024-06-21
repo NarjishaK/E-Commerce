@@ -18,5 +18,8 @@ router.post("/", upload.single("image"), Controller.create);
 router.post("/signin",Controller.signin);
 router.get('/:id',Controller.edit)
 router.put("/:id",upload.single('image'),Controller.update)
+router.get('/',Controller.list)
+router.delete("/:id",Controller.delete)
+router.post('/unlockPassword/:id',Controller.unlockPassword)
 
 module.exports = router;

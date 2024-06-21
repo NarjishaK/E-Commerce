@@ -17,12 +17,11 @@ import withRouter from "components/Common/withRouter"
 // users
 
 const ProfileMenu = props => {
-  // Declare a new state variable, which we'll call "menu"
   const [menu, setMenu] = useState(false)
 
-const admin=JSON.parse(localStorage.getItem("adminDetails"))
+   const admin=JSON.parse(localStorage.getItem("adminDetails"))
   return (
-    <React.Fragment>
+    <>
       <Dropdown
         isOpen={menu}
         toggle={() => setMenu(!menu)}
@@ -45,14 +44,14 @@ const admin=JSON.parse(localStorage.getItem("adminDetails"))
             <i className="mdi mdi-account-circle font-size-17 text-muted align-middle me-1"/>
             {props.t("Profile")}{" "}
           </DropdownItem>
-          <DropdownItem tag="a" href="#">
+          {/* <DropdownItem tag="a" href="#">
             <i className="mdi mdi-wallet font-size-17 text-muted align-middle me-1"/>
             {props.t("My Wallet")}
-          </DropdownItem>
-          <DropdownItem className="d-flex align-items-center" to="#">
+          </DropdownItem> */}
+          {/* <DropdownItem className="d-flex align-items-center" to="#">
             <i className="mdi mdi-cog font-size-17 text-muted align-middle me-1"></i>
-            {props.t("Settings")}<span className="badge bg-success ms-auto">11</span></DropdownItem>
-          <DropdownItem tag="a" href="auth-lock-screen">
+            {props.t("Settings")}<span className="badge bg-success ms-auto">11</span></DropdownItem> */}
+          <DropdownItem tag="a" href={`/auth-lock-screen/${admin.id}`}>
             <i className="mdi mdi-lock-open-outline font-size-17 text-muted align-middle me-1"/>
             {props.t("Lock screen")}
           </DropdownItem>
@@ -64,7 +63,7 @@ const admin=JSON.parse(localStorage.getItem("adminDetails"))
           </Link>
         </DropdownMenu>
       </Dropdown>
-    </React.Fragment>
+    </>
   )
 }
 
