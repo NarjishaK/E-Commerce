@@ -13,6 +13,7 @@ import {
 import { setBreadcrumbItems } from "../../store/actions"
 import { connect } from "react-redux"
 import axios from "axios"
+import { ToastContainer, toast } from "react-toastify"
 
 const Category = props => {
   const breadcrumbItems = [
@@ -29,13 +30,18 @@ const Category = props => {
   })
 
   const [modal_center, setmodal_center] = useState(false)
+  const [modal_large, setmodal_large] = useState(false)
   const [product, setProduct] = useState("")
   const [Cimage, setCImage] = useState(null)
   const [category, setCategory] = useState([])
-  const [editingProductId, setEditingProductId] = useState(null) // New state to store the ID of the product being edited
+  const [editingProductId, setEditingProductId] = useState(null)
 
   function tog_center() {
     setmodal_center(!modal_center)
+    removeBodyCss()
+  }
+  function tog_large() {
+    setmodal_large(!modal_large)
     removeBodyCss()
   }
 
@@ -61,9 +67,11 @@ const Category = props => {
     if (confirmation) {
       try {
         await axios.delete(`http://localhost:8080/categories/${id}`)
+        toast.success("Deleted Successfull")
         fetchData()
       } catch (err) {
         console.log(err, "Something went wrong in delete")
+        toast.error("Deleted failed")
       }
     }
   }
@@ -79,10 +87,10 @@ const Category = props => {
       const categorylist = response.data
       setProduct(categorylist.product)
       setCImage(`http://localhost:8080/upload/${categorylist.Cimage}`)
-      setEditingProductId(id) 
-      tog_center() 
+      setEditingProductId(id)
+      tog_center()
     } catch (err) {
-      console.log(err, "Something went wrong in edit by id")
+      console.log(err, "Something went wrong ")
     }
   }
 
@@ -100,17 +108,98 @@ const Category = props => {
           },
         },
       )
-      alert("Success")
+      toast.success("Updated Successfull")
       fetchData()
-      setmodal_center(false) 
+      setmodal_center(false)
     } catch (err) {
-      console.log(err)
-      alert("Failed")
+      console.log(err, "something went wrong in updation ")
+      toast.error("Updated Successfull")
+    }
+  }
+
+  const handleCreate = async () => {
+    const formData = {
+      product,
+      Cimage,
+    }
+    try {
+      await axios.post("http://localhost:8080/categories", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      toast.success("Created new category ")
+    } catch (err) {
+      console.log(err, "category created failed")
     }
   }
 
   return (
     <div>
+      <ToastContainer />
+      <Col>
+        <div className="text-center">
+          <button
+            type="button"
+            className="btn btn-primary waves-effect waves-light"
+            onClick={() => {
+              tog_large()
+            }}
+            data-toggle="modal"
+            data-target=".bs-example-modal-lg"
+            style={{ width: "100%" }}
+          >
+            CREATE NEW
+          </button>
+        </div>
+
+        <Modal
+          size="lg"
+          isOpen={modal_large}
+          toggle={() => {
+            tog_large()
+          }}
+        >
+          <div className="modal-header">
+            <h5 className="modal-title mt-0" id="myLargeModalLabel">
+              CREATE NEW CATEGORY
+            </h5>
+            <button
+              onClick={() => {
+                setmodal_large(false)
+              }}
+              type="button"
+              className="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div className="modal-body">
+            <Input
+              type="text"
+              placeholder="Product"
+              value={product}
+              onChange={e => setProduct(e.target.value)}
+            />
+            <br />
+            <Input
+              type="file"
+              placeholder="Image"
+              accept="image/*"
+              onChange={handleImage}
+            />
+            <br />
+            <Button style={{ width: "100%" }} onClick={handleCreate}>
+              CREATE
+            </Button>
+          </div>
+        </Modal>
+      </Col>
+      <br />
+
+      {/* ./// */}
       <Row>
         {category.map(lists => (
           <Col key={lists._id} mg={2} lg={6} xl={3}>
@@ -132,7 +221,7 @@ const Category = props => {
                       style={{ width: "100%" }}
                       onClick={() => handleEdit(lists._id)}
                     >
-                      Edit
+                      EDIT
                     </button>
                   </div>
                   <Modal
@@ -175,16 +264,17 @@ const Category = props => {
                       <Button style={{ width: "100%" }} onClick={handleUpdate}>
                         Update
                       </Button>
+                      <br />
+                      <br />
+                      <Button
+                        style={{ width: "100%" }}
+                        onClick={() => handleDelete(lists._id)}
+                      >
+                        Delete
+                      </Button>
                     </div>
                   </Modal>
                 </Col>
-                <br />
-                <Button
-                  style={{ width: "100%" }}
-                  onClick={() => handleDelete(lists._id)}
-                >
-                  Delete
-                </Button>
               </CardBody>
             </Card>
           </Col>
