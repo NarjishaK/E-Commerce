@@ -8,6 +8,8 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var adminRouter= require('./routes/admin')
 var categoryRouter= require('./routes/categories')
+var brandRouter = require('./routes/brand')
+var productdRouter = require('./routes/product')
 var cors = require('cors')
 
 connectDB()
@@ -33,6 +35,8 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/admin',adminRouter);
 app.use('/categories',categoryRouter);
+app.use('/brand',brandRouter)
+app.use('/product',productdRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
