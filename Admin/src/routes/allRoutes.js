@@ -77,10 +77,14 @@ import Kanban from "pages/Kanban"
 //
 import Brands from "pages/Brands"
 import Category from "pages/Categories"
+import Userlist from 'pages/Users'
+import Product from "pages/Product"
 
 const userRoutes = [
   { path: "/dashboard", component: <Dashboard /> },
 
+  {path: "/userlist",component:<Userlist/>},
+  {path: "/product", component:<Product/>},
   // //calendar
   // { path: "/calendar", component: <Calendar /> },
 

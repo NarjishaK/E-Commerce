@@ -196,6 +196,18 @@ const SidebarContent = props => {
                   <span>Brand</span>
                   </Link>
             </li>
+            <li>
+                  <Link to="/userlist" className=" waves-effect">
+                  <i className="mdi mdi-account-box"></i>
+                  <span>Users</span>
+                  </Link>
+            </li>
+            <li>
+                  <Link to="/product" className=" waves-effect">
+                  <i className="mdi mdi-account-box"></i>
+                  <span>Product</span>
+                  </Link>
+            </li>
             <li className="menu-title">{props.t("Components")}</li>
             <li>
               <Link to="/#" className="has-arrow waves-effect">

@@ -62,11 +62,11 @@ const Category = props => {
     }
   }
 
-  const handleDelete = async id => {
+  const handleDelete = async () => {
     const confirmation = window.confirm("Do you want to delete this category?")
     if (confirmation) {
       try {
-        await axios.delete(`http://localhost:8080/categories/${id}`)
+        await axios.delete(`http://localhost:8080/categories/${editingProductId}`)
         toast.success("Deleted Successfull")
         fetchData()
       } catch (err) {
