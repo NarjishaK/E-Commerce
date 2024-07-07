@@ -14,12 +14,10 @@ const storage = multer.diskStorage({
 var upload = multer({ storage: storage });
 
 
-router.post("/", upload.single("productimage"), Controller.create);
-// router.post("/signin",Controller.signin);
-// router.get('/:id',Controller.edit)
-// router.put("/:id",upload.single('image'),Controller.update)
-// router.get('/',Controller.list)
-// router.delete("/:id",Controller.delete)
-// router.post('/unlockPassword/:id',Controller.unlockPassword)
+router.post("/", upload.array("productimage"), Controller.create);
+router.get('/',Controller.list);
+router.delete('/:id',Controller.delete)
+router.get('/:id',Controller.edit)
+// router.get('/:brand',Controller.brand)
 
 module.exports = router;
