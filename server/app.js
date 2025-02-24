@@ -16,7 +16,7 @@ connectDB()
 var app = express();
 
 app.use(cors({
-  origin:"http://localhost:3000",
+  origin:"http://localhost:3002",
   method:["PUT","DELETE","PUSH","GET"],
   credential:true
 }))
